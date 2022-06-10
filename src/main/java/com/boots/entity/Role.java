@@ -19,6 +19,7 @@ public class Role implements GrantedAuthority {
     @Transient
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
+
     public Role() {
     }
 
@@ -33,6 +34,7 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
+        //Имя роли должно соответствовать шаблону: «ROLE_ИМЯ»
         return getName();
     }
 }
